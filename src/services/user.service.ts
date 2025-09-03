@@ -4,6 +4,7 @@ import type { User } from "@prisma/client";
 // Service methods
 export const getAllUsers = async (): Promise<User[]> => {
     console.log("Service: Getting all users from the database");
+    // const query = `SELECT * FROM users`;
     return prisma.user.findMany();
 };
 

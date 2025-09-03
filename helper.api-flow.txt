@@ -1,7 +1,7 @@
 API Flow Example (shop-co-api)
 
 1. Client Request:
-  - HTTP request sent to API endpoint (e.g., POST /products)
+  - HTTP request sent to API endpoint (e.g., POST /products) // Product Create
 
 2. Route Handler:
   - Express route matches the endpoint
