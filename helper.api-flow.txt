@@ -1,0 +1,51 @@
+API Flow Example (shop-co-api)
+
+1. Client Request:
+  - HTTP request sent to API endpoint (e.g., POST /products)
+
+2. Route Handler:
+  - Express route matches the endpoint
+  - Example: router.post('/products', productController.createProduct)
+
+3. Controller:
+  - Receives request data (req.body)
+  - Calls service layer for business logic
+  - Example: productService.createProduct(productData)
+
+4. Service:
+  - Handles business logic
+  - Calls Prisma client for database operations
+  - Example: prisma.product.create({ data: productData })
+
+5. Prisma (ORM):
+  - Executes database query
+  - Returns result to service
+
+6. Service:
+  - Processes result, handles errors
+  - Returns response to controller
+
+7. Controller:
+  - Sends HTTP response to client (res.json(result))
+
+Sequence Diagram:
+Client -> Route -> Controller -> Service -> Prisma -> Service -> Controller -> Client
+
+Example Code Snippets:
+
+// route.js
+router.post('/products', productController.createProduct);
+
+// productController.js
+exports.createProduct = async (req, res) => {
+  const product = await productService.createProduct(req.body);
+  res.json(product);
+};
+
+// productService.js
+exports.createProduct = async (data) => {
+  return await prisma.product.create({ data });
+};
+
+// prisma.js
+// Prisma client handles DB connection and queries

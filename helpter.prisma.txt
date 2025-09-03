@@ -1,0 +1,23 @@
+# Initialize Prisma in your project
+npx prisma init  // Don't need to run this command
+
+# Generate Prisma Client
+npx prisma generate
+
+# Migrate your database (create new migration)
+npx prisma migrate dev --name <name>
+
+# Apply migrations to the database
+npx prisma migrate deploy
+
+# Introspect existing database schema
+npx prisma db pull
+
+# Push Prisma schema changes to the database (without migrations)
+npx prisma db push
+
+# Open Prisma Studio (GUI for your database)
+npx prisma studio
+
+# Format your Prisma schema file
+npx prisma format
