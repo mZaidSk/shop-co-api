@@ -6,6 +6,7 @@ const { getAllUsers, createUser: createUserService } = userService;
 
 export const getUsers = async (req: Request, res: Response): Promise<void> => {
     try {
+        console.log("Fetching all users");
         const users: User[] = await getAllUsers();
         res.json(users);
     } catch (err: unknown) {

@@ -1,12 +1,17 @@
 import express from "express";
 import type { Application } from "express";
-import { userRoutes } from "./routes/index.js";
+import apiRoutes from "./routes/index.js";
 
 const app: Application = express();
 
 app.use(express.json());
 
 // Routes
-app.use("/users", userRoutes);
+
+app.use("/api", apiRoutes);
+
+app.use((req, res, next) => {
+    res.status(404).json({ message: "Route not found" });
+});
 
 export default app;
